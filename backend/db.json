@@ -1,0 +1,49 @@
+{
+  "telemetry": {
+    "solarBase": 150,
+    "windBase": 100,
+    "batteryCapacity": 1000,
+    "batterySoc": 78.32,
+    "hydrogenReserves": 80,
+    "hydrogenCapacity": 100,
+    "gridOnline": false,
+    "disasterMode": true,
+    "weather": "partly_cloudy"
+  },
+  "demands": {
+    "tier1_icu": 50,
+    "tier1_er": 40,
+    "tier1_lifesupport": 30,
+    "tier2_operating": 45,
+    "tier2_medequipment": 35,
+    "tier3_watertreatment": 60,
+    "tier4_communication": 30,
+    "tier5_admin": 25
+  },
+  "alerts": [
+    {
+      "id": "alert-grid-monitor-danger",
+      "timestamp": "2026-07-01T16:19:18.544Z",
+      "type": "danger",
+      "source": "Grid Monitor",
+      "message": "CRITICAL Outage: Facility is operating on isolated microgrid.",
+      "acknowledged": false
+    },
+    {
+      "id": "alert-load-controller-danger",
+      "timestamp": "2026-07-01T16:19:18.545Z",
+      "type": "danger",
+      "source": "Load Controller",
+      "message": "CRITICAL: Energy shedding active. 2 low-priority system(s) offline.",
+      "acknowledged": false
+    },
+    {
+      "id": "alert-disaster-protocol-danger",
+      "timestamp": "2026-07-01T16:19:18.545Z",
+      "type": "danger",
+      "source": "Disaster Protocol",
+      "message": "Disaster Mode active: Generation capacity restricted, demand inflated.",
+      "acknowledged": false
+    }
+  ]
+}
