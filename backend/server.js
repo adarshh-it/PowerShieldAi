@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { runPriorityEngine } from './engine/priorityEngine.js';
-
+import { runPowerShieldSimulation } from './simulationEngine.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DB_PATH = path.join(__dirname, 'db.json');
@@ -216,7 +216,14 @@ app.post('/api/reset', (req, res) => {
     alerts: dbState.alerts
   });
 });
-
+app.get('/api/simulation/run', (req, res) => {
+    try {
+        const results = runPowerShieldSimulation();
+        res.json({ success: true, timeline: results });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
 app.listen(PORT, () => {
   console.log(`PowerShield AI Backend listening on http://localhost:${PORT}`);
 });
